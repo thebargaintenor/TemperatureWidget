@@ -1,0 +1,32 @@
+﻿<Window x:Class="TemperatureWidget.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:TemperatureWidget"
+        mc:Ignorable="d"
+        Title="Temperature Reading" Height="60" Width="200" Closed="Window_Closed"
+		WindowStyle="None" AllowsTransparency="True" Background="Transparent" ResizeMode="NoResize">
+    <Grid MouseEnter="Grid_MouseEnter" MouseLeave="Grid_MouseLeave" Background="#01333333">
+		<Grid.ColumnDefinitions>
+			<ColumnDefinition Width="*"/>
+			<ColumnDefinition Width="20"/>
+		</Grid.ColumnDefinitions>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="20"/>
+			<RowDefinition Height="*"/>
+		</Grid.RowDefinitions>
+		<TextBlock x:Name="TemperatureOutput" Grid.RowSpan="2"
+				   FontSize="20" 
+				   HorizontalAlignment="Right" VerticalAlignment="Center" 
+				   Foreground="WhiteSmoke">
+			<TextBlock.Effect>
+				<DropShadowEffect ShadowDepth="3"/>
+			</TextBlock.Effect>
+		</TextBlock>
+		<Button x:Name="CloseButton" Grid.Column="1" Margin="2" 
+				ToolTip="Close" Click="CloseButton_Click" Visibility="Collapsed"/>
+		<Rectangle x:Name="WindowHandle" Grid.Column="1" Grid.Row="1" 
+				   Fill="#33333333" MouseDown="WindowHandle_MouseDown" Visibility="Collapsed"/>
+	</Grid>
+</Window>
